@@ -9,7 +9,7 @@ private Properties prop;
 	
 	public Properties init_prop() throws IOException {
 		
-		FileInputStream file=new FileInputStream("C:\\Users\\Asus\\eclipse-workspace2\\com.bdd.magicbricks\\src\\main\\java\\com\\bdd\\magicbricks\\util\\ConfigReader.java");
+		FileInputStream file=new FileInputStream("C:\\Users\\Asus\\eclipse-workspace2\\com.bdd.magicbricks\\src\\test\\resources\\config\\config.properties");
 		
 		prop=new Properties();
 		

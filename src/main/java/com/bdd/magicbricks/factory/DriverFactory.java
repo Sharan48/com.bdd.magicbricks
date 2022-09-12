@@ -8,7 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 	
-private WebDriver driver;
+
 	
 	public static ThreadLocal<WebDriver> tldriver=new ThreadLocal<WebDriver>();
 	

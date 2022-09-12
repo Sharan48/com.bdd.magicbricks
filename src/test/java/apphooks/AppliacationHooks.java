@@ -1,5 +1,6 @@
 package apphooks;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,22 +15,18 @@ import io.cucumber.java.Before;
 public class AppliacationHooks {
 	private DriverFactory driverfactory;
 	private WebDriver driver;
-	private ConfigReader configreader;
-	Properties prop;
 	
 	@Before(order=0)
-	public void getproperty() throws IOException {
-		configreader=new ConfigReader();
-		prop=configreader.init_prop();
-	}
-	
-	@Before(order=1)
-	public void launchbrowser() {
+	public void launchbrowser() throws IOException {
+		FileInputStream file=new 
+				FileInputStream("C:\\Users\\Asus\\eclipse-workspace2\\com.bdd.magicbricks\\src\\test\\resources\\config\\config.properties");
+		Properties prop = new Properties();
+		prop.load(file);
 		String browserName = prop.getProperty("browser");
 		driverfactory=new DriverFactory();
 		driver=driverfactory.init_driver(browserName);
 	}
-	
+
 	@After(order=0)
 	public void quitbrowser() {
 		driver.quit();

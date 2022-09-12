@@ -3,8 +3,10 @@ package stepdefinitions;
 import org.junit.Assert;
 
 import com.bdd.magicbricks.factory.DriverFactory;
+import com.bdd.magicbricks.pages.HelpCenterPage;
 import com.bdd.magicbricks.pages.HomePage;
 import com.bdd.magicbricks.pages.LoginPage;
+import com.bdd.magicbricks.pages.RentPage;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +17,8 @@ public class LoginPageStep {
 	
 	private LoginPage loginpage=new LoginPage(DriverFactory.getDriver());
 	private HomePage homepage=new HomePage(DriverFactory.getDriver());
+	private RentPage rentpage=new RentPage(DriverFactory.getDriver());
+	private HelpCenterPage helpcenterpage=new HelpCenterPage(DriverFactory.getDriver());
 	
 	
 	@Given("user is on login page")
@@ -51,6 +55,31 @@ public class LoginPageStep {
 		String actualtitle = homepage.getTitle();
 		Assert.assertEquals(expectdTitle, actualtitle);
 	    
+	}
+	@Then("user navigate to home page")
+	public void user_navigate_to_home_page() {
+	   
+	}
+
+	@When("user click on Rent link")
+	public void user_click_on_Rent_link() {
+		rentpage.clickonRentLink();
+	}
+
+	@Then("rent page should be displayed")
+	public void rent_page_should_be_displayed() {
+	   
+	}
+
+	@When("user click on help center link")
+	public void user_click_on_help_center_link() {
+		helpcenterpage.clickOnHelpCenter();
+	   
+	}
+
+	@Then("help center page should be displayed")
+	public void help_center_page_should_be_displayed() {
+	
 	}
 
 }
